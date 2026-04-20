@@ -6,13 +6,13 @@ states = (
 )
 
 
-def filter_by_state(states: list) -> list[dict]:
+def filter_by_state(states: list, target: str = "EXECUTED") -> list[dict]:
     """Функция принимает список словарей и опционально значение для ключа
     state"""
-    return [state for state in states if state["state"] == "EXECUTED"]
+    return [state for state in states if state["state"] == target]
 
 
-def sort_by_date(states: tuple) -> list[dict]:
+def sort_by_date(states: tuple, reversed: bool = True) -> list[dict]:
     """Функция принимает список словарей и необязательный параметр, задающий порядок сортировки"""
-    sorted_states = sorted(states, key=lambda states: states["date"], reverse=True)
+    sorted_states = sorted(states, key=lambda states: states["date"], reverse=reversed)
     return sorted_states
