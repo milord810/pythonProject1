@@ -1,6 +1,7 @@
 import pytest
 
-from src.processing import filter_by_state, sort_by_date, states
+from src.processing import filter_by_state, sort_by_date
+
 
 @pytest.fixture
 def test_filter_by_state(transactions, transactions_executed, transactions_canceled):
