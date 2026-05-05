@@ -30,17 +30,17 @@ def test_log_in_file_fail():
 def test_log_in_console(capsys):
     @log(filename="")
     def my_func(x, y):
-        """Функция умножения двух чисел"""
+        """Функция складывания двух чисел"""
         return x + y
 
-    my_func(1, 2)
-    captured = capsys.readouterr()
-    assert ("my_function" in captured.out) and ("args - (1, 2)" in captured.out)
-
-    with pytest.raises(TypeError, match="unsupported operand"):
-        my_func(1, "0")
+        my_func(1, 2)
         captured = capsys.readouterr()
-        assert ("my_function" in captured.out) and ("args - (1, '0')" in captured.out)
+        assert ("my_function" in captured.out) and ("args - (1, 2)" in captured.out)
 
-    my_func(1, 2)
-    assert my_func(1, 2) == 2
+        with pytest.raises(TypeError, match="unsupported operand"):
+            my_func(1, "0")
+            captured = capsys.readouterr()
+            assert ("my_function" in captured.out) and ("args - (1, '0')" in captured.out)
+
+        my_func(1, 2)
+        assert my_func(1, 2) == 2
