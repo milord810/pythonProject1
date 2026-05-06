@@ -43,4 +43,4 @@ def test_log_in_console(capsys):
             assert ("my_function" in captured.out) and ("args - (1, '0')" in captured.out)
 
         my_func(1, 2)
-        assert my_func(1, 2) == 2
+        assert my_func(1, 2) == 3
