@@ -1,13 +1,13 @@
 import pytest
 
-from src.processing import filter_by_state, sort_by_date
+from src.processing import filter_by_state, sort_by_date, states
+from tests.conftest import transactions, transactions_executed, transactions_canceled
 
 
-@pytest.fixture
 def test_filter_by_state(transactions, transactions_executed, transactions_canceled):
     """Функция тестирования фильтра по значению ключа 'state'"""
-    assert filter_by_state(transactions, state="EXECUTED") == transactions_executed
-    assert filter_by_state(transactions, state="CANCELED") == transactions_canceled
+    assert filter_by_state(transactions, target="EXECUTED") == transactions_executed
+    assert filter_by_state(transactions, target="CANCELED") == transactions_canceled
 
 
 def test_sort_by_date(transactions, transactions_date):
