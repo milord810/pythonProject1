@@ -18,7 +18,7 @@ def convertation(data: dict) -> float:
     if currency == "RUB":  # Проверка, если валюта - RUB, возвращает значение
         return amount
 
-    url = f"https://api.apilayer.com/exchangerates_data/latest?symbols=RUB&base=<{currency}>"
+    url = f"https://api.apilayer.com/currency_data/convert?to=RUB&from={currency}&amount={amount}"
 
     response = requests.request("GET", url, headers=headers).json()
 

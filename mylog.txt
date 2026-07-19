@@ -1,0 +1,2 @@
+function my_function with args: 
+Result: 8
