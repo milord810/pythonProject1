@@ -2,9 +2,10 @@ import requests
 import os
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+load_dotenv()
 
-API_KEY = os.getenv("API_KEY")
+# API_KEY = os.getenv("API_KEY")
+API_KEY="PTYyVLoFiWALhiALPA5JaxkefFEz35cU"
 
 
 def convertation(data: dict) -> float:
@@ -12,16 +13,17 @@ def convertation(data: dict) -> float:
 
     amount = data.get("operationAmount").get("amount")
     currency = data.get("operationAmount").get("currency").get("code")
-    headers = {"apikey": {API_KEY}}
+    headers = {"apikey": API_KEY}
 
     if currency == "RUB":  # Проверка, если валюта - RUB, возвращает значение
         return amount
 
-    url = f"https://api.apilayer.com/exchangerates_data/latest?symbols=RUB&base=<{amount}>"
+    url = f"https://api.apilayer.com/exchangerates_data/latest?symbols=RUB&base=<{currency}>"
 
     response = requests.request("GET", url, headers=headers).json()
 
     return response
+    print(response)
 
 if __name__ == "__main__":
     transaction = {
