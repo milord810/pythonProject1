@@ -9,7 +9,7 @@ API_KEY="PTYyVLoFiWALhiALPA5JaxkefFEz35cU"
 
 
 def convertation(data: dict) -> float:
-    """Функция, конвертирующая валюты из USD в RUB"""
+    """Функция, конвертирующая валюты в RUB"""
 
     amount = data.get("operationAmount").get("amount")
     currency = data.get("operationAmount").get("currency").get("code")
@@ -23,7 +23,7 @@ def convertation(data: dict) -> float:
     response = requests.request("GET", url, headers=headers).json()
 
     return response
-    print(response)
+
 
 if __name__ == "__main__":
     transaction = {
