@@ -19,6 +19,6 @@ def convertation(data: dict) -> float:
 
     url = f"https://api.apilayer.com/currency_data/convert?to=RUB&from={currency}&amount={amount}"
 
-    response:dict = requests.get(url, headers=headers).json()
+    response: dict = requests.get(url, headers=headers).json()
 
     return response.get("result")
