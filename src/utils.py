@@ -3,7 +3,6 @@ import logging
 import os
 
 from dotenv import load_dotenv
-from mypy.cache import read_json
 
 load_dotenv(".env")
 
@@ -15,13 +14,13 @@ logging.basicConfig(
 
 logger = logging.getLogger("read_json")
 file_handler = logging.FileHandler("utils.log")
-file_formatter = logging.Formatter("%(asctime)s: %(modulename)s: %(levelname)s: %(message)s")
+file_formatter = logging.Formatter("%(asctime)s: %(module)s: %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
 
 
-def reading_json(filename):
+def read_json(filename):
     try:
         logger.info("starting app...")
         with open(filename, encoding="UTF-8") as file:

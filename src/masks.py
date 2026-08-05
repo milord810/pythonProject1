@@ -6,7 +6,7 @@ logging.basicConfig(
 
 masks_logger = logging.getLogger("get_mask_card_number")
 file_handler = logging.FileHandler("masks.log")
-file_formatter = logging.Formatter("%(asctime)s: %(modulename)s: %(levelname)s: %(message)s")
+file_formatter = logging.Formatter("%(asctime)s: %(module)s: %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 masks_logger.addHandler(file_handler)
 masks_logger.setLevel(logging.DEBUG)
