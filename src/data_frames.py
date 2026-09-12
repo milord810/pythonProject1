@@ -5,13 +5,12 @@ import pandas as pd
 
 def csv_reader(way):
     """Функция для считывания CSV"""
-    with open(way) as file:
-        reader = csv.DictReader(file, delimiter=';')
-        for row in reader:
-            return row
+    df = pd.read_csv(way, encoding="UTF-8")
+    result_csv = df.to_dict(orient="records")
+    return result_csv
 
 
-def excel_reader(excel_way):
+def excel_reader(excel_way, encoding="UTF-8"):
     """Функция для считывания Excel"""
     excel_df = pd.read_excel(excel_way)
     result = excel_df.to_dict(orient="records")
