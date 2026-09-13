@@ -5,7 +5,7 @@ import pandas as pd
 
 def csv_reader(way):
     """Функция для считывания CSV"""
-    df = pd.read_csv(way, encoding="UTF-8")
+    df = pd.read_csv(way, encoding="UTF-8", delimiter=";")
     result_csv = df.to_dict(orient="records")
     return result_csv
 
