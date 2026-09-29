@@ -19,4 +19,4 @@ def excel_reader(excel_way, encoding="UTF-8"):
 
 if __name__ == "__main__":
     csv_reader("transactions.csv")
-    excel_reader("transactions_excel.xlsx")
+    # excel_reader("transactions_excel.xlsx")
