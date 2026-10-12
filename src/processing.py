@@ -6,9 +6,10 @@ states = (
 )
 
 
-def filter_by_state(states: list, target: str = "EXECUTED") -> list[dict]:
+def filter_by_state(states: list, target: str) -> list[dict]:
     """Функция принимает список словарей и опционально значение для ключа
     state"""
+
     return [state for state in states if state["state"] == target]
 
 
