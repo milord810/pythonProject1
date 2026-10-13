@@ -7,8 +7,7 @@ def filter_by_currency(data: list, currency: str = "USD") -> Generator[str, dict
         yield "Нет данных"
     else:
         filtered_transactions = (
-            transaction for transaction in data if transaction["operationAmount"]["currency"]["code"] == currency
-        )
+            transaction for transaction in data if transaction.get("operationAmount", {}).get("currency", {}).get("code", {}) == currency)
         for i in filtered_transactions:
             yield i
 
